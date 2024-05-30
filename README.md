@@ -3,13 +3,14 @@ EasyStayz
 EasyStayz is a full-stack application designed to provide a seamless experience for booking stays. The application features robust back-end functionality and dynamic front-end interfaces, ensuring an efficient and user-friendly experience.
 
 Table of Contents
-Features
-Tech Stack
-Installation
-Usage
-Project Structure
-Contributing
-License
+    Features
+    Tech Stack
+    Installation
+    Usage
+    Project Structure
+    Contributing
+    License
+  
 Features
 
 Back-end Management: Efficient data handling and server-side operations with MongoDB and Express.js.
@@ -22,6 +23,7 @@ Express.js: Back-end framework
 Node.js: Server environment
 Bootstrap: Front-end framework for styling
 HTML & CSS: Markup and styling
+
 Installation
 To run this project locally, follow these steps:
 
@@ -33,6 +35,7 @@ Define port
 npm start
 
 Project Structure
+
 easystayz/
 ├── client/
 │ ├── public/
