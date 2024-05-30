@@ -1,4 +1,5 @@
 EasyStayz
+
 EasyStayz is a full-stack application designed to provide a seamless experience for booking stays. The application features robust back-end functionality and dynamic front-end interfaces, ensuring an efficient and user-friendly experience.
 
 Table of Contents
