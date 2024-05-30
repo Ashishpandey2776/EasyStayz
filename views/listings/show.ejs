@@ -1,0 +1,94 @@
+
+<% layout("/listings/layouts/boilerplate") %> 
+<body>
+    <div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Listing Details</h3>
+    </div>
+    <div class="card card-listing offset-2 col-6">
+        <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+        <div class="card-body">
+       <b><%=listing.title%></b> 
+       <p class="card text">
+        <p><i>owned by:<%= listing.owner.username %></i></p>
+        <%=listing.description%> <br/>
+        <%=listing.price%>       <br/>
+        <%=listing.location%> <br/>
+        <%=listing.country%>
+       </p>
+         </div>
+    </div>
+    <br>
+
+
+   <div class="btns">
+    
+        <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-2">Edit</a>
+    
+    
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE" >
+            <button class="
+             btn btn-dark offset-4" >Delete</button>
+        </form>  
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h4>Leave a Review</h4>
+            <form action="/listings/<%=listing.id%>/reviews" method="post">
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-control-range">
+                </div>
+                <div class="form-group"> 
+                    <label for="comment">Comment</label>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="10" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+  <hr>
+  <div class="col-6 offset-2">
+     <p><b>All Reviews</b></p>
+     <% for(review of listing.review){ %>
+        <div class="card col-sm-6 ms-3 mb-3">
+           <div class="card-body">
+            <h5 class="card-title">joyDeep</h5>
+            <p class="card-text"><%= review.comment %></p>
+            <p class="card-text"><%= review.rating %>stars</p>
+            <form method="post" action="/listings/<%=listing._id%>/reviews/<%= review._id%>?_method=DELETE" class="mb-3">
+                <button class="btn btn-sm btn-dark">Delete</button>
+            </form>
+           </div>
+        </div>
+        <%  } %>
+  </div>
+</div>
+<div class="col-6 offset-2">
+    <h3>Where you'll be</h3>
+    <div id="map" style="height: 400px; width: 80vh;"></div>
+  </div>
+</body>
+
+<!-- this script need to seprate in script.js but this file path does't work so here is this. -->
+<script>
+    let maptoken="<%=process.env.MAP_TOKEN%>";
+    const coordinates=<%-JSON.stringify(listing.geometry.coordinates)%>;
+    
+    mapboxgl.accessToken=maptoken;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: coordinates, // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+    const marker1 = new mapboxgl.Marker({color:"red"})
+        .setLngLat(coordinates)
+        .setPopup(new mapboxgl.Popup({offset: 25})
+        .setHTML("<h5>Your Destination is here!</h5>"))
+        .addTo(map);
+
+</script>
+

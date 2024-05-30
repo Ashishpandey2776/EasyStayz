@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderLust</title>
+  </head> -->
+  <% layout("/listings/layouts/boilerplate") %> 
+  <body>
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings" enctype="multipart/form-data">
+      <!-- class="needs-validation" novalidate bootstrap -->
+      <div class="row mb-3">
+        <div class="col">
+          <label for="title" class="from-lable">Title</label><br>
+          <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required/>
+          <!-- <div class="valid-feedback">
+            Looks good!
+          </div> -->
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col">
+          <label for="description" class="from-lable">Description</label><br>
+          <textarea name="listing[description]" class="form-control" required></textarea>
+        </div>
+      </div>
+     
+      <div class="row mb-3">
+        <div class="col">
+          <label for="image" class="from-lable">Upload Image</label><br>
+          <input name="listing[image]" type="file" class="form-control" required/>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col">
+          <label for="price" class="from-lable">Price</label><br>
+          <input name="listing[price]" placeholder="enter price"  class="form-control" required/>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col">
+          <label for="country" class="from-lable">Country</label><br>
+          <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col">
+          <label for="location" class="from-lable">Location</label><br>
+          <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required/>
+          <div class="invalid-feedback">Enter valid location</div>
+        </div>
+      </div>
+  
+      <button class="btn btn-dark">Add</button>
+      
+    </form>
+  </body>
+  

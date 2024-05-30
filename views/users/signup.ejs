@@ -1,0 +1,28 @@
+<% layout("/listings/layouts/boilerplate") %> 
+
+<div class="row mt-3">
+    <h3>Signup</h3>
+    <form method="POST" action="/signup">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="username" class="from-lable">Username</label><br>
+          <input name="username" id="username" type="text" class="form-control" required/>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col">
+          <label for="email" class="from-lable">Email</label><br>
+          <input name="email" id="email" type="text" class="form-control" required/>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col">
+          <label for="password" class="from-lable">Password</label><br>
+          <input name="password" id="password" type="password" class="form-control" required/>
+        </div>
+      </div>
+      <button class="btn btn-outline-success">Signup</button>
+    </form>
+</div>
