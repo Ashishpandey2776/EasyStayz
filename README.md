@@ -4,8 +4,11 @@ EasyStayz is a full-stack application designed to provide a seamless experience 
 
 Table of Contents
     Features
+    
     Tech Stack
+    
     Installation
+    
     Usage
     Project Structure
     Contributing
